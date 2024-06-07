@@ -79,7 +79,7 @@ Route::get('/voting/edit/{nis_nip}',[VotingController::class,'edit']);
 Route::post('/voting/update/{nis_nip}',[VotingController::class, 'update']);
 Route::get('/voting/tambah',[VotingController::class, 'tambah']);
 Route::post('/voting/simpan',[VotingController::class, 'save']);
-Route::get('/voting/hapus/{nis_nip}',[VotingController::class, 'hapusData']);
+Route::get('/voting/hapus/{nis_nip}',[VotingController::class, 'hapus']);
 
 // datapoling
 Route::get('/datapoling',[datapolingController::class,'index'])->name('index');

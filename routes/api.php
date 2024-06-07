@@ -25,6 +25,7 @@ Route::get('/voting/tampil', [VotingApiCtrl::class, 'index']);
 Route::get('/voting/tampil/{nis_nips}', [VotingApiCtrl::class, 'show']);
 // Route::get('/akun/tampil/user/{user}', [AkunApiCtrl::class, 'showuser']);
 Route::post('/voting/tambah', [VotingApiCtrl::class, 'store']);
+Route::get('/voting/total', [VotingApiCtrl::class, 'donut']);
 
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

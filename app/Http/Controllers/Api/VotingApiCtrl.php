@@ -11,6 +11,9 @@ use App\Models\Api\VotingApi;
 
 class VotingApiCtrl extends Controller
 {
+    public function __construct(){
+        $this ->Voting = new VotingApi();
+    }
     public function index()
     {
         $voting = VotingApi::all();
@@ -18,22 +21,23 @@ class VotingApiCtrl extends Controller
     }
 
     public function store(Request $request)
-    {
-        $validator = Validator::make($request->all(), [
-            'nis_nip' => 'required|unique:tb_voting',
-            'nama_lengkap' => 'required',
-            'kelas' => 'required',
-            'id_kandidat' => 'required',
-            'tgl_memilih' => 'required',
-        ]);
+{
+    $validator = Validator::make($request->all(), [
+        'nis_nip' => '|unique:tb_voting',
+        //'nama_lengkap' => '',
+        //'kelas' => '',
+        'id_kandidat' => '',
+        'tgl_memilih' => '',
+    ]);
 
-        if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
-        }
-
-        $voting = VotingApi::create($request->all());
-        return response()->json($voting, 201);
+    if ($validator->fails()) {
+        return response()->json($validator->errors(), 400);
     }
+
+    $voting = VotingApi::create($request->all());
+    return response()->json(['message' => 'Data berhasil ditambah', 'data' => $voting], 201);
+}
+
 
     public function show($nis_nip)
     {
@@ -81,4 +85,12 @@ class VotingApiCtrl extends Controller
         $akun->delete();
         return response()->json(['message' => 'Account deleted successfully']);
     }
+
+public function donut(){
+        $alldata = [
+            'Data Voting'=>$this->Voting->votingdonat(), // mengambil class pada models alldata
+        ];
+        return response()->json($alldata);
+        // return view('akun.akun', $alldata);
+}
 }

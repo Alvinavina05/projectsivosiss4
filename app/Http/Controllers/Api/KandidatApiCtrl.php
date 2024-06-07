@@ -10,12 +10,22 @@ use App\Models\Api\KandidatApi;
 
 class KandidatApiCtrl extends Controller
 {
-    public function index()
-    {
-        $kandidat = KandidatApi::all();
-        return response()->json($kandidat);
+    public function __construct(){
+        $this ->kandidat = new KandidatApi();
     }
 
+    public function index(){
+
+        $alldata = [
+            'Data Kandidat'=>$this->kandidat->alldata(), // mengambil class pada models alldata
+        ];
+        return response()->json($alldata);
+}
+   // public function index()
+    //{
+       // $kandidat = KandidatApi::all();
+     //   return response()->json($kandidat);
+   //}
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
