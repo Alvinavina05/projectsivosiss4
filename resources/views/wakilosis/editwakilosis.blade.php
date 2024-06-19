@@ -71,7 +71,7 @@
 
 <div class="dasd">
 <br>
-<button type="submit" class="btn dasd btn-danger"><a class="text-white" href="wakilosis.php">Kembali</a> </button>
+<button type="submit" class="btn dasd btn-danger"><a class="text-white" href="/wakilosis">Kembali</a> </button>
 </div>
 
 

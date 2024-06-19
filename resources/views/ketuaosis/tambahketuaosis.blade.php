@@ -70,7 +70,7 @@
 
 <div class="dasd">
 <br>
-<button type="submit" class="btn dasd btn-danger"><a class="text-white" href="ketuaosis.php">Kembali</a> </button>
+<button type="submit" class="btn dasd btn-danger"><a class="text-white" href="/ketuaosis">Kembali</a> </button>
 </div>
 
 
